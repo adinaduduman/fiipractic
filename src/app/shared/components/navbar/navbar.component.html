@@ -1,0 +1,27 @@
+<header>
+  <nav>
+    <div class="logo">
+      <img src="https://fiipractic.asii.ro/img/logo.png" alt="">
+    </div>
+    <div class="navigation">
+      <ul>
+        <li><a href="#">Arii</a></li>
+        <li><a href="#">Program</a></li>
+        <li><a href="#">Hackaton</a></li>
+        <li><a href="#">Conferinta</a></li>
+        <li><a href="#">Parteneri</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="account">
+    <mat-menu #appMenu="matMenu" class="matMenuClass">
+      <button mat-menu-item>Admin</button>
+      <button mat-menu-item [routerLink]="['/account']" routerLinkActive="active">Account</button>
+    </mat-menu>
+
+    <div mat-icon-button [matMenuTriggerFor]="appMenu" class="menuClass">
+      <mat-icon>arrow_drop_down</mat-icon>
+      {{user.prenume}} {{user.nume}}
+    </div>
+   </div>
+</header>

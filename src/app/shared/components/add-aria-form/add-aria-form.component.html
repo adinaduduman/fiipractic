@@ -1,0 +1,84 @@
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Adauga aria</ng-template>
+        <div class="form-wrapper">
+            <form #ariaForm="ngForm">
+              <mat-form-field appearance="outline">  
+              <mat-label>Categorie</mat-label>
+                <input matInput type="text" class="form-control" id="category"
+                       required
+                       placeholder="Categorie"
+                       ngModel
+                       name="category"
+                       [(ngModel)]="aria.category"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Descriere</mat-label>
+                <input matInput type="text" class="form-control" id="description"
+                       required
+                       ngModel
+                       [(ngModel)]="aria.description"
+                       placeholder="Descriere"
+                       name="description"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Imagine</mat-label>
+                <input matInput type="text" class="form-control" id="image"
+                       required
+                       ngModel
+                       placeholder="Introdu linkul imaginii"
+                       [(ngModel)]="aria.image"
+                       name="image"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Stack</mat-label>
+                  <input matInput type="text" class="form-control" id="stack"
+                         required
+                         ngModel
+                         placeholder="Stack"
+                         [(ngModel)]="aria.stack"
+                         name="stack"
+                  >
+                </mat-form-field>
+            </form>
+          </div>
+        <div>
+          <button mat-button matStepperNext [disabled]="!ariaForm.valid" (click)="onNextFirstStep(ariaForm)">Next step</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Adauga cursuri</ng-template>
+        <div class="form-wrapper">
+            <form #courseForm="ngForm">
+              <mat-form-field appearance="outline">  
+              <mat-label>Nume cursuri separate prin virgula</mat-label>
+                <input matInput type="text" class="form-control" id="course"
+                       required
+                       placeholder="Nume curs"
+                       ngModel
+                       name="courses"
+                       [(ngModel)]="courses"
+                >
+              </mat-form-field>
+            </form>
+          </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext [disabled]="!courseForm.valid" (click)="onNextSecondStep(courseForm)">Adauga</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Gata!</ng-template>
+      <div>Aria a fost adaugata</div>
+      <div>
+        <button mat-button (click)="stepper.reset()" (click)="ariaForm.reset()" (click)="courseForm.reset()">Adauga alta arie</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>

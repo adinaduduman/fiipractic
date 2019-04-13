@@ -1,0 +1,58 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins";
+
+.main-arias {
+  width: 1200px;
+  display: flex;
+  margin: 60px auto;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .arias-actions{
+    display: flex;
+    flex-direction: column;
+    button {
+      @include primary-button($primary-color);
+      margin-left: 1rem;
+    }
+  }
+}
+.single-aria-container {
+  width: 22%;
+  margin: 15px;
+  .aria-top-box {
+    height: 200px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .aria-bottom-box {
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: open-sans, sans-serif;
+    padding: 20px;
+    border: 1px solid #dedede;
+    min-height: 75px;
+  }
+  .aria-group {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 0 0 10px;
+  }
+  .aria-name {
+    width: 96%;
+    display: flex;
+    background-color: $primary-color;
+    border-bottom-right-radius: 50px;
+    padding: 5px;
+  }
+  img {
+    height: 110px;
+    width: 110px;
+    align-self: center;
+  }
+}

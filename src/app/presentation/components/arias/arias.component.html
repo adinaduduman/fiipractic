@@ -1,0 +1,22 @@
+<div class="main-arias">
+  <div class="arias-actions">
+    <app-search (sendRes)="getResponse($event)"></app-search>
+    <button routerLink='/addAria' routerLinkActive="active">Adauga arie noua</button>
+  </div>
+  <div *ngFor="let aria of filteredArias"
+       [routerLink]="['/category', aria.category]"
+        routerLinkActive="active"
+       class="single-aria-container"
+      (click)="getAriaClicked(aria.category)">
+    <div class="aria-top-box">
+      <div class="aria-name">
+        <span>{{aria.name}}</span>
+      </div>
+      <img src="{{aria.image}}" alt="">
+      <div class="aria-group">{{aria.stack}}</div>
+    </div>
+    <div class="aria-bottom-box">
+     {{aria.description}}
+    </div>
+  </div>
+</div>

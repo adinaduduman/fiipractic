@@ -1,0 +1,21 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+.form-wrapper{
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+}
+
+button{
+  @include primary-button($primary-color);
+  border: none;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: yellow; 
+}
